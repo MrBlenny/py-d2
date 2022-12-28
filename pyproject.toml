@@ -1,0 +1,225 @@
+[tool.poetry]
+name = "pyproject-starter"
+version = "0.1.5"
+description = "A template for the python project. It uses poetry for dependency management and tox for testing."
+authors = ["Leon <silenceace@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://funnyzak.github.io/pyproject-starter/"
+repository = "https://github.com/funnyzak/pyproject-starter"
+documentation = "https://funnyzak.github.io/pyproject-starter/"
+keywords = [
+    "pyproject",
+    "poetry-project",
+    "pyproject-starter",
+    "python-project-starter",
+    "python-project-template",
+]
+packages = [
+    { include = "pdf_parse", from = "src" },
+    { include = "hello", from = "src" },
+]
+
+[tool.poetry.urls]
+"Bug Tracker" = "https://github.com/funnyzak/pyproject-starter/issues"
+
+[tool.poetry.scripts]
+hello = "hello.main:say_hello"
+single_pdf_parse = { callable = "pdf_parse.single_pdf_parse:main", extras = ["pdf"] }
+multi_pdf_parse = { callable = "pdf_parse.multi_pdf_parse:main", extras = ["pdf"] }
+
+
+extract_pdf_images_demo = { callable = "pdf_parse.single_pdf_parse:test_extract_images", extras = ["pdf"] }
+add_pdf_annotation_demo = { callable = "pdf_parse.single_pdf_parse:test_add_annotation", extras = ["pdf"] }
+
+merge_pdf_demo = { callable = "pdf_parse.multi_pdf_parse:test_merge_pdf", extras = ["pdf"] }
+multi_layer_pdf_demo = { callable = "pdf_parse.multi_pdf_parse:test_multi_pdf_to_multi_layer", extras = ["pdf"] }
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+# optional dependencies, which enhance a package, but are not required; and clusters of optional dependencies.
+borb = { version = "^2.1.7", optional = true }
+PyPDF2 = { version = "^2.12.1", optional = true }
+pikepdf = {version = "^6.2.6", optional = true}
+requests = {version = "^2.28.1", optional = true}
+
+
+[tool.poetry.extras]
+pdf = ["PyPDF2", "borb", "pikepdf", "requests"]
+
+[tool.poetry.group.dev]
+optional = true
+
+[tool.poetry.group.dev.dependencies]
+isort = "^5.10.1"
+black = "^22.8.0"
+mypy = "^0.982"
+flake8 = "^5.0.4"
+Flake8-pyproject = "^1.1.0.post0"
+flake8-bugbear = "^22.9.23"
+flake8-logging-format = "^0.9.0"
+ipdb = "^0.13.9"
+tox = "^3.26.0"
+pre-commit = "^2.20.0"
+
+[tool.poetry.group.test]
+optional = true
+
+[tool.poetry.group.test.dependencies]
+pytest = "^7.1.3"
+
+[tool.poetry.group.coverage]
+optional = true
+
+[tool.poetry.group.coverage.dependencies]
+coverage = "^6.5.0"
+pytest-cov = "^4.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -vvv -s"
+testpaths = ["tests"]
+pythonpath = ["tests"]
+norecursedirs = ["tests/_cache"]
+markers = [
+    "test_multi_pdf_parse_main",
+    "test_extract_pdf_images",
+]
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+extend-exclude = '''
+# A regex preceded with ^/ will apply only to files and directories
+# in the root of the project.
+(
+    \.pytest_cache
+  | \.git
+  | \.mypy_cache
+)
+'''
+
+[tool.isort]
+profile = 'black'
+# The 'black' profile means:
+#   multi_line_output = 3
+#   include_trailing_comma = true
+#   force_grid_wrap = 0
+#   use_parentheses = true
+#   ensure_newline_before_comments = true
+#   line_length = 88
+line_length = 120                 # override black provile line_length
+force_single_line = true         # override black profile multi_line_output
+star_first = true
+group_by_package = true
+force_sort_within_sections = true
+lines_after_imports = 2
+
+honor_noqa = true
+atomic = true
+ignore_comments = false
+skip_gitignore = true
+src_paths = ['src', 'tests']
+known_first_party = "pdf_parse"
+
+
+[tool.flake8]
+max-line-length = 120
+max-complexity = 18
+count = true
+show-source = true
+statistics = true
+disable-noqa = false
+enable-extensions = [
+    'G', # flake8-logging-format
+]
+# it's not a bug that we aren't using all of hacking
+extend-ignore = [
+    # H101: Use TODO(NAME)
+    'H101',
+    # H202: assertRaises Exception too broad
+    'H202',
+    # H233: Python 3.x incompatible use of print operator
+    'H233',
+    # H301: one import per line
+    'H301',
+    # H306: imports not in alphabetical order (time, os)
+    'H306',
+    # H401: docstring should not start with a space
+    # 'H401',
+    # H403: multi line docstrings should end on a new line
+    'H403',
+    # H404: multi line docstring should start without a leading new line
+    'H404',
+    # H405: multi line docstring summary not separated with an empty line
+    'H405',
+    # H501: Do not use self.__dict__ for string formatting
+    'H501',
+    # F401: module imported but unused
+    #'F401'
+]
+# 'select' defaults to: E,F,W,C90
+extend-select = [
+    # * Default warnings reported by flake8-bugbear (B) -
+    #   https://github.com/PyCQA/flake8-bugbear#list-of-warnings
+    'B',
+    # * The B950 flake8-bugbear opinionated warnings -
+    #   https://github.com/PyCQA/flake8-bugbear#opinionated-warnings
+    'B9',
+    #
+    # * Complexity violations reported by mccabe (C) -
+    #   http://flake8.pycqa.org/en/latest/user/error-codes.html#error-violation-codes
+    #   mccabe only ever reports one violation - C901 based on the complexity value
+    #   provided by the user.
+    #   This is selected by default.
+    #'C90',
+    #
+    # * Documentation conventions compliance reported by pydocstyle (D) -
+    #   http://www.pydocstyle.org/en/stable/error_codes.html
+    #'D', # FIXME TODO
+    #
+    # * Default errors reported by pycodestyle (E) -
+    #   https://pycodestyle.readthedocs.io/en/latest/intro.html#error-codes
+    #   This is selected by default.
+    #'E',
+    #
+    # * Default errors reported by pyflakes (F) -
+    #   http://flake8.pycqa.org/en/latest/user/error-codes.html
+    #   This is selected by default.
+    #'F',
+    #
+    # * flake8-mypy - enable limited type checking as a linter
+    #   http://flake8.pycqa.org/en/latest/user/error-codes.html
+    #'T4', # FIXME TODO
+    #
+    # * Default warnings reported by pycodestyle (W) -
+    #   https://pycodestyle.readthedocs.io/en/latest/intro.html#error-codes
+    #   This is selected by default.
+    #'W',
+]
+extend-exclude = [
+    '.github',
+    '.gitlab',
+    '.Python',
+    '.*.pyc',
+    '.*.pyo',
+    '.*.pyd',
+    '.*.py.class',
+    '*.egg-info',
+    'venv*',
+    '.venv*',
+    '.*_cache',
+    'lib',
+    'lib64',
+    '.*.so',
+    'build',
+    'dist',
+    'sdist',
+    'wheels',
+]

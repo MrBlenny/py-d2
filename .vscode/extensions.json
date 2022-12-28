@@ -1,0 +1,10 @@
+{
+  "recommendations": [
+    "tamasfe.even-better-toml",
+    "ms-python.python",
+    "yzhang.markdown-all-in-one",
+    "ms-python.black-formatter",
+    "lextudio.restructuredtext",
+    "trond-snekvik.simple-rst"
+  ]
+}
