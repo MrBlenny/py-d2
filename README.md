@@ -1,6 +1,8 @@
 # d2-py
 
-A fully typed python interface for building .d2 graph files for use with the D2 engine.
+![Banner](docs/images/banner.png)
+
+An unofficial, fully typed python interface for building .d2 graph files in python.
 
 ## Installation
 
@@ -47,9 +49,9 @@ node_name1 -> node_name2
 
 This can be rendered using `d2 render graph.d2` or [https://play.d2lang.com/](https://play.d2lang.com/) to produce
 
-![example graph](./docs/images/d2.svg)
+![example graph](/docs/images/d2.svg)
 
-See the [tests](./tests/test_py_d2) for more detailed usage examples.
+See the [tests](/tests/test_py_d2) for more detailed usage examples.
 
 
 ## Development
@@ -86,6 +88,8 @@ poetry install
 There are some useful commands for development:
 
 ```bash
+# Run the example
+poetry run example
 
 # Debug with ipdb3
 poetry run ipdb3 ./src/py_d2/main.py
@@ -96,8 +100,8 @@ poetry run pytest -s
 # Run default coverage test
 poetry run tox
 
-# Run hello project coverage test at python 3.9 and 3.10
-poetry run tox -e py{39,310}-hello
+# Run example project coverage test at python 3.9 and 3.10
+poetry run tox -e py{39,310}-example
 
 # Lint with black
 poetry run black ./src --check

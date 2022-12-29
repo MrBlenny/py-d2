@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "py-d2"
 version = "0.0.1"
-description = "A python interface for building .d2 graph files for use with the D2 engine."
+description = "An unofficial, fully typed python interface for building .d2 graph files in python."
 authors = ["David Revay <daverevay@gmail.com>"]
 license = "MIT"
 readme = "README.md"
