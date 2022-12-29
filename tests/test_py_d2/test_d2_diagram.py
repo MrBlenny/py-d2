@@ -31,12 +31,12 @@ def test_d2_diagram_one_link_with_style():
 
     diagram = D2Diagram(nodes=nodes, links=links)
     assert str(diagram) == """node_name1: {
-  style: { 
+  style: {
     fill: red
   }
 }
 node_name2: {
-  style: { 
+  style: {
     fill: blue
   }
 }

@@ -1,7 +1,7 @@
 from typing import List
 from typing import Optional
 
-from py_d2.helpers import indent
+from py_d2.helpers import add_label_and_properties
 
 
 def stringify_bool(val: bool) -> str:
@@ -54,7 +54,7 @@ class D2Style:
         if len(styles) == 0:
             return []
 
-        return ["style: { ", *indent(styles), "}"]
+        return add_label_and_properties("style", None, styles)
 
     def __repr__(self) -> str:
         lines = self.lines()

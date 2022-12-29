@@ -6,7 +6,11 @@ from py_d2.D2Node import D2Node
 
 
 class D2Diagram:
-    def __init__(self, nodes: Optional[List[D2Node]] = None, links: Optional[List[D2Link]] = None):
+    def __init__(
+        self,
+        nodes: Optional[List[D2Node]] = None,
+        links: Optional[List[D2Link]] = None,
+    ):
         self.nodes = nodes or []
         self.links = links or []
 
@@ -17,4 +21,7 @@ class D2Diagram:
         self.links.append(link)
 
     def __repr__(self) -> str:
-        return "\n".join([str(node) for node in self.nodes] + [str(link) for link in self.links])
+        nodes = [str(node) for node in self.nodes]
+        links = [str(link) for link in self.links]
+
+        return "\n".join(nodes + links)

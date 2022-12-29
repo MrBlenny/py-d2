@@ -1,3 +1,4 @@
+from typing import List
 from typing import Optional
 
 
@@ -7,8 +8,11 @@ class D2Link:
         self.to_node = to_node
         self.label = label
 
-    def __repr__(self) -> str:
+    def lines(self) -> List[str]:
         base = f"{self.from_node} -> {self.to_node}"
         if self.label:
             base += f": {self.label}"
-        return base
+        return [base]
+
+    def __repr__(self) -> str:
+        return "\n".join(self.lines())
