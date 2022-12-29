@@ -41,11 +41,18 @@ class D2Shape:
     def __init__(
         self,
         name: str,
+        # The label of this shape
         label: Optional[str] = None,
+        # The actual 2D shape of this shape
         shape: Optional[Shape] = None,
+        # A list of child shapes (when this shape is a container)
         shapes: Optional[List[D2Shape]] = None,
+        # The style of this shape
         style: Optional[D2Style] = None,
+        # Connections for the child shapes (NOT the connections for this shape)
         connections: Optional[List[D2Connection]] = None,
+        # A shape this is near
+        near: Optional[str] = None,
     ):
         self.name = name
         self.label = label
@@ -53,6 +60,7 @@ class D2Shape:
         self.shapes = shapes or []
         self.style = style
         self.connections = connections or []
+        self.near = near
 
     def add_shape(self, shape: D2Shape):
         self.shapes.append(shape)
@@ -68,6 +76,9 @@ class D2Shape:
         if self.shape:
             properties.append(f"shape: {self.shape.value}")
 
+        if self.near:
+            properties.append(f"near: {self.near}")
+
         if self.style:
             properties += self.style.lines()
 
@@ -77,4 +88,5 @@ class D2Shape:
 
     def __repr__(self) -> str:
         lines = self.lines()
+        return "\n".join(lines)
         return "\n".join(lines)

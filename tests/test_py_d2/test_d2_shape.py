@@ -136,3 +136,7 @@ def test_d2_shape_shapes():
     assert str(shape_image) == "shape_name: {\n  shape: image\n}"
     assert str(shape_classs) == "shape_name: {\n  shape: class\n}"
     assert str(shape_sequence_diagram) == "shape_name: {\n  shape: sequence_diagram\n}"
+
+def test_d2_shape_near():
+    shape = D2Shape(name="shape_name", near="some_other_shape")
+    assert str(shape) == "shape_name: {\n  near: some_other_shape\n}"
