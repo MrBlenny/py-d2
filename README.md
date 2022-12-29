@@ -2,7 +2,7 @@
 
 ![Banner](docs/images/banner.png)
 
-An unofficial, fully typed python interface for building .d2 graph files in python.
+An unofficial, fully typed python interface for building [.d2](https://github.com/terrastruct/d2) diagram files in python.
 
 ## Installation
 
@@ -13,16 +13,16 @@ pip install py-d2
 ## Usage
 
 ```python
-from py_d2 import D2Graph, D2Node, D2Connection, D2Style
+from py_d2 import D2Diagram, D2Shape, D2Connection, D2Style
 
-nodes = [
-    D2Node(name="node_name1", style=D2Style(fill="red")),
-    D2Node(name="node_name2", style=D2Style(fill="blue"))]
-links = [
-    D2Connection(from_node="node_name1", to_node="node_name2")
+shapes = [
+    D2Shape(name="shape_name1", style=D2Style(fill="red")),
+    D2Shape(name="shape_name2", style=D2Style(fill="blue"))]
+connections = [
+    D2Connection(shape_1="shape_name1", shape_2="shape_name2")
 ]
 
-diagram = D2Diagram(nodes=nodes, links=links)
+diagram = D2Diagram(shapes=shapes, connections=connections)
 
 with open("graph.d2", "w") as f:
     f.write(str(diagram))
@@ -33,17 +33,17 @@ produces the following graph.d2 file:
 
 ```d2
 
-node_name1: {
+shape_name1: {
   style: {
     fill: red
   }
 }
-node_name2: {
+shape_name2: {
   style: {
     fill: blue
   }
 }
-node_name1 -> node_name2
+shape_name1 -> shape_name2
 
 ```
 
