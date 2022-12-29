@@ -65,7 +65,7 @@ following the steps below to setup the project:
 
 ```bash
 # Clone the repository
-git clone git@github.com:mrblennt/py-d2.git && cd py-d2
+git clone git@github.com:funnyzak/pyproject-starter.git && cd pyproject-starter
 
 # Install all dependencies
 poetry install --sync --all-extras --with dev,test,coverage
@@ -73,11 +73,6 @@ poetry install --sync --all-extras --with dev,test,coverage
 # install git hook scripts for development
 pre-commit install
 
-# Other useful installation dependencies commands
-# Install dependencies with all extras
-poetry install --all-extras
-# Install dependencies with extras 'pdf' for pdf_parse project
-poetry install --extras "pdf"
 # Install dependencies with group 'dev'、'test' for development
 poetry install --with dev,test
 # Only install required dependencies for production

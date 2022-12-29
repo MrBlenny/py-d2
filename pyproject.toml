@@ -1,53 +1,29 @@
 [tool.poetry]
-name = "pyproject-starter"
-version = "0.1.5"
-description = "A template for the python project. It uses poetry for dependency management and tox for testing."
-authors = ["Leon <silenceace@gmail.com>"]
+name = "py-d2"
+version = "0.0.1"
+description = "A python interface for building .d2 graph files for use with the D2 engine."
+authors = ["David Revay <daverevay@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://funnyzak.github.io/pyproject-starter/"
-repository = "https://github.com/funnyzak/pyproject-starter"
-documentation = "https://funnyzak.github.io/pyproject-starter/"
+homepage = "https://mrblenny.github.io/py-d2/"
+repository = "https://github.com/mrblenny/py-d2"
+documentation = "https://mrblenny.github.io/py-d2/"
 keywords = [
-    "pyproject",
-    "poetry-project",
-    "pyproject-starter",
-    "python-project-starter",
-    "python-project-template",
+    "py-d2",
+    "d2-lang",
+    "d2-python",
+    "diagram-language",
+    "terrastruct",
 ]
 packages = [
-    { include = "pdf_parse", from = "src" },
-    { include = "hello", from = "src" },
+    { include = "py_d2", from = "src" },
 ]
 
 [tool.poetry.urls]
-"Bug Tracker" = "https://github.com/funnyzak/pyproject-starter/issues"
-
-[tool.poetry.scripts]
-hello = "hello.main:say_hello"
-single_pdf_parse = { callable = "pdf_parse.single_pdf_parse:main", extras = ["pdf"] }
-multi_pdf_parse = { callable = "pdf_parse.multi_pdf_parse:main", extras = ["pdf"] }
-
-
-extract_pdf_images_demo = { callable = "pdf_parse.single_pdf_parse:test_extract_images", extras = ["pdf"] }
-add_pdf_annotation_demo = { callable = "pdf_parse.single_pdf_parse:test_add_annotation", extras = ["pdf"] }
-
-merge_pdf_demo = { callable = "pdf_parse.multi_pdf_parse:test_merge_pdf", extras = ["pdf"] }
-multi_layer_pdf_demo = { callable = "pdf_parse.multi_pdf_parse:test_multi_pdf_to_multi_layer", extras = ["pdf"] }
-
+"Bug Tracker" = "https://github.com/mrblenny/py-d2/issues"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-
-# optional dependencies, which enhance a package, but are not required; and clusters of optional dependencies.
-borb = { version = "^2.1.7", optional = true }
-PyPDF2 = { version = "^2.12.1", optional = true }
-pikepdf = {version = "^6.2.6", optional = true}
-requests = {version = "^2.28.1", optional = true}
-
-
-[tool.poetry.extras]
-pdf = ["PyPDF2", "borb", "pikepdf", "requests"]
 
 [tool.poetry.group.dev]
 optional = true
@@ -87,10 +63,6 @@ addopts = "-ra -vvv -s"
 testpaths = ["tests"]
 pythonpath = ["tests"]
 norecursedirs = ["tests/_cache"]
-markers = [
-    "test_multi_pdf_parse_main",
-    "test_extract_pdf_images",
-]
 
 [tool.black]
 line-length = 120
@@ -126,7 +98,6 @@ atomic = true
 ignore_comments = false
 skip_gitignore = true
 src_paths = ['src', 'tests']
-known_first_party = "pdf_parse"
 
 
 [tool.flake8]
