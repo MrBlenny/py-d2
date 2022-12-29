@@ -3,7 +3,7 @@ name: Custom Issue Template
 about: Tell us something related to the project or general discussion
 title: ''
 labels: question
-assignees: troublediehard
+assignees: MrBlenny
 ---
 
 **Are there certain things to report that are not a bug or feature?**
