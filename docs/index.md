@@ -49,6 +49,8 @@ This can be rendered using `d2 render graph.d2` or [https://play.d2lang.com/](ht
 
 ![example graph](./docs/images/d2.svg)
 
+See the [tests](./tests/test_py_d2) for more detailed usage examples.
+
 
 ## Development
 ### Prerequisite
@@ -65,7 +67,7 @@ following the steps below to setup the project:
 
 ```bash
 # Clone the repository
-git clone git@github.com:funnyzak/pyproject-starter.git && cd pyproject-starter
+git clone git@github.com:MrBlenny/py-d2.git && cd py-d2
 
 # Install all dependencies
 poetry install --sync --all-extras --with dev,test,coverage
@@ -85,7 +87,7 @@ There are some useful commands for development:
 
 ```bash
 
-# Debug "hello" project with ipdb3
+# Debug with ipdb3
 poetry run ipdb3 ./src/py_d2/main.py
 
 # Code test
@@ -95,7 +97,7 @@ poetry run pytest -s
 poetry run tox
 
 # Run hello project coverage test at python 3.9 and 3.10
-poetry run tox -e py{39,310}-hello
+poetry run tox -e py{39,310}-example
 
 # Lint with black
 poetry run black ./src --check

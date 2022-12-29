@@ -49,6 +49,8 @@ This can be rendered using `d2 render graph.d2` or [https://play.d2lang.com/](ht
 
 ![example graph](./docs/images/d2.svg)
 
+See the [tests](./tests/test_py_d2) for more detailed usage examples.
+
 
 ## Development
 ### Prerequisite
@@ -65,7 +67,7 @@ following the steps below to setup the project:
 
 ```bash
 # Clone the repository
-git clone git@github.com:mrblennt/py-d2.git && cd py-d2
+git clone git@github.com:MrBlenny/py-d2.git && cd py-d2
 
 # Install all dependencies
 poetry install --sync --all-extras --with dev,test,coverage
@@ -73,11 +75,6 @@ poetry install --sync --all-extras --with dev,test,coverage
 # install git hook scripts for development
 pre-commit install
 
-# Other useful installation dependencies commands
-# Install dependencies with all extras
-poetry install --all-extras
-# Install dependencies with extras 'pdf' for pdf_parse project
-poetry install --extras "pdf"
 # Install dependencies with group 'dev'、'test' for development
 poetry install --with dev,test
 # Only install required dependencies for production
@@ -90,7 +87,7 @@ There are some useful commands for development:
 
 ```bash
 
-# Debug "hello" project with ipdb3
+# Debug with ipdb3
 poetry run ipdb3 ./src/py_d2/main.py
 
 # Code test

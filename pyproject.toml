@@ -19,6 +19,10 @@ packages = [
     { include = "py_d2", from = "src" },
 ]
 
+[tool.poetry.scripts]
+example = "py_d2.main:example"
+
+
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/mrblenny/py-d2/issues"
 

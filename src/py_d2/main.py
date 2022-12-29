@@ -5,9 +5,7 @@ from py_d2.D2Node import D2Node
 from py_d2.D2Style import D2Style
 
 
-if __name__ == "__main__":
-    # Example
-
+def example():
     nodes = [
         D2Node(name="node_name1", style=D2Style(fill="red")),
         D2Node(name="node_name2", style=D2Style(fill="blue")),
@@ -18,3 +16,7 @@ if __name__ == "__main__":
 
     with open("graph.d2", "w") as f:
         f.write(str(diagram))
+
+
+if __name__ == "__main__":
+    example()
