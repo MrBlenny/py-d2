@@ -24,7 +24,7 @@ def test_d2_diagram_two_shapes():
 
 def test_d2_diagram_one_connection():
     shapes = [D2Shape(name="shape_name1"), D2Shape(name="shape_name2")]
-    connections = [D2Connection(from_shape="shape_name1", to_shape="shape_name2")]
+    connections = [D2Connection(shape_1="shape_name1", shape_2="shape_name2")]
 
     diagram = D2Diagram(shapes=shapes, connections=connections)
     assert str(diagram) == "\n".join(["shape_name1", "shape_name2", "shape_name1 -> shape_name2"])
@@ -34,7 +34,7 @@ def test_d2_diagram_one_connection_imperative_connection():
     diagram = D2Diagram()
     diagram.add_shape(D2Shape(name="shape_name1"))
     diagram.add_shape(D2Shape(name="shape_name2"))
-    diagram.add_connection(D2Connection(from_shape="shape_name1", to_shape="shape_name2"))
+    diagram.add_connection(D2Connection(shape_1="shape_name1", shape_2="shape_name2"))
     assert str(diagram) == "\n".join(["shape_name1", "shape_name2", "shape_name1 -> shape_name2"])
 
 
@@ -43,7 +43,7 @@ def test_d2_diagram_one_connection_with_style():
         D2Shape(name="shape_name1", style=D2Style(fill="red")),
         D2Shape(name="shape_name2", style=D2Style(fill="blue")),
     ]
-    connections = [D2Connection(from_shape="shape_name1", to_shape="shape_name2")]
+    connections = [D2Connection(shape_1="shape_name1", shape_2="shape_name2")]
 
     diagram = D2Diagram(shapes=shapes, connections=connections)
     assert str(diagram) == "\n".join(

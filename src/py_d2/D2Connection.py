@@ -1,16 +1,25 @@
 # -*- coding: utf-8 -*-
+from enum import Enum
 from typing import List
 from typing import Optional
 
 
+class Direction(Enum):
+    TO = "->"
+    FROM = "<-"
+    BOTH = "<->"
+    NONE = "--"
+
+
 class D2Connection:
-    def __init__(self, from_shape: str, to_shape: str, label: Optional[str] = None):
-        self.from_shape = from_shape
-        self.to_shape = to_shape
+    def __init__(self, shape_1: str, shape_2: str, label: Optional[str] = None, direction: Direction = Direction.TO):
+        self.shape_1 = shape_1
+        self.shape_2 = shape_2
         self.label = label
+        self.direction = direction
 
     def lines(self) -> List[str]:
-        base = f"{self.from_shape} -> {self.to_shape}"
+        base = f"{self.shape_1} {self.direction.value} {self.shape_2}"
         if self.label:
             base += f": {self.label}"
         return [base]

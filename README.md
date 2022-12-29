@@ -60,11 +60,12 @@ See the [tests](/tests/test_py_d2) for more detailed usage examples.
 - [x] Connections (links)
 - [x] Styles
 - [x] Containers (nodes/links in nodes)
-- [ ] Markdown / block strings / code in nodes
-- [ ] Icons in nodes
-- [x] Shapes in nodes
-- [ ] SQL table nodes
-- [ ] Class nodes
+- [x] Shapes in shapes
+- [x] Arrow directions
+- [ ] Markdown / block strings / code in shapes
+- [ ] Icons in shapes
+- [ ] SQL table shapes
+- [ ] Class shapes
 - [ ] Comments
 
 

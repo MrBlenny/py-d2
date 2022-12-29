@@ -25,7 +25,9 @@ def test_d2_shape_container():
     shape.add_shape(D2Shape(name="shape_1"))
     shape.add_shape(D2Shape(name="shape_2"))
     shape.add_connection(D2Connection(shape_1="shape_1", shape_2="shape_2"))
-    assert str(shape) == "\n".join(["shape_name: container_label {", "  shape_1", "  shape_2", "  shape_1 -> shape_2", "}"])
+    assert str(shape) == "\n".join(
+        ["shape_name: container_label {", "  shape_1", "  shape_2", "  shape_1 -> shape_2", "}"]
+    )
 
 
 def test_d2_shape_container_style():
@@ -82,6 +84,7 @@ def test_d2_shape_container_in_container_with_shapes():
             "}",
         ]
     )
+
 
 def test_d2_shape_shapes():
     shape_rectangle = D2Shape(name="shape_name", shape=Shape.rectangle)

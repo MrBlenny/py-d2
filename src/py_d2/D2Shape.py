@@ -53,7 +53,7 @@ class D2Shape:
         self.shapes = shapes or []
         self.style = style
         self.connections = connections or []
-        
+
     def add_shape(self, shape: D2Shape):
         self.shapes.append(shape)
 
