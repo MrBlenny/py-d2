@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from py_d2.helpers import add_label_and_properties
 
 

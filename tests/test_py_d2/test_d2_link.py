@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from py_d2.D2Link import D2Link
 
 

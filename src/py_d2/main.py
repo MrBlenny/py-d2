@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from py_d2.D2Diagram import D2Diagram
 from py_d2.D2Link import D2Link
 from py_d2.D2Node import D2Node
