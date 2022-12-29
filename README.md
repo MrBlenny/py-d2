@@ -7,13 +7,13 @@ An unofficial, fully typed python interface for building .d2 graph files in pyth
 ## Installation
 
 ```bash
-pip install d2-py
+pip install py-d2
 ```
 
 ## Usage
 
 ```python
-from d2_py import D2Graph, D2Node, D2Link, D2Style
+from py_d2 import D2Graph, D2Node, D2Link, D2Style
 
 nodes = [
     D2Node(name="node_name1", style=D2Style(fill="red")),
