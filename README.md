@@ -73,7 +73,7 @@ See the [tests](/tests/test_py_d2) for more detailed usage examples.
 ### Prerequisite
 
 - [Python 3.7+](https://www.python.org/)
-- [Poetry 1.2](https://python-poetry.org/)
+- [Poetry 1.3](https://python-poetry.org/)
 - [pre-commit](https://pre-commit.com/)
 
 ### Installation
@@ -116,7 +116,7 @@ poetry run pytest -s
 poetry run tox
 
 # Run example project coverage test at python 3.9 and 3.10
-poetry run tox -e py{39,310}-example
+poetry run tox -e py{39,310}-py-d2
 
 # Lint with black
 poetry run black ./src --check
