@@ -62,7 +62,7 @@ See the [tests](/tests/test_py_d2) for more detailed usage examples.
 - [x] Containers (nodes/links in nodes)
 - [ ] Markdown / block strings / code in nodes
 - [ ] Icons in nodes
-- [ ] Shapes in nodes
+- [x] Shapes in nodes
 - [ ] SQL table nodes
 - [ ] Class nodes
 - [ ] Comments
