@@ -13,13 +13,13 @@ pip install py-d2
 ## Usage
 
 ```python
-from py_d2 import D2Graph, D2Node, D2Link, D2Style
+from py_d2 import D2Graph, D2Node, D2Connection, D2Style
 
 nodes = [
     D2Node(name="node_name1", style=D2Style(fill="red")),
     D2Node(name="node_name2", style=D2Style(fill="blue"))]
 links = [
-    D2Link(from_node="node_name1", to_node="node_name2")
+    D2Connection(from_node="node_name1", to_node="node_name2")
 ]
 
 diagram = D2Diagram(nodes=nodes, links=links)
@@ -52,6 +52,20 @@ This can be rendered using `d2 render graph.d2` or [https://play.d2lang.com/](ht
 ![example graph](/docs/images/d2.svg)
 
 See the [tests](/tests/test_py_d2) for more detailed usage examples.
+
+
+## Supported Features
+
+- [x] Shapes (nodes)
+- [x] Connections (links)
+- [x] Styles
+- [x] Containers (nodes/links in nodes)
+- [ ] Markdown / block strings / code in nodes
+- [ ] Icons in nodes
+- [ ] Shapes in nodes
+- [ ] SQL table nodes
+- [ ] Class nodes
+- [ ] Comments
 
 
 ## Development

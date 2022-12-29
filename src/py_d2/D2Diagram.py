@@ -2,27 +2,27 @@
 from typing import List
 from typing import Optional
 
-from py_d2.D2Link import D2Link
-from py_d2.D2Node import D2Node
+from py_d2.D2Connection import D2Connection
+from py_d2.D2Shape import D2Shape
 
 
 class D2Diagram:
     def __init__(
         self,
-        nodes: Optional[List[D2Node]] = None,
-        links: Optional[List[D2Link]] = None,
+        shapes: Optional[List[D2Shape]] = None,
+        connections: Optional[List[D2Connection]] = None,
     ):
-        self.nodes = nodes or []
-        self.links = links or []
+        self.shapes = shapes or []
+        self.connections = connections or []
 
-    def add_node(self, node: D2Node):
-        self.nodes.append(node)
+    def add_shape(self, shape: D2Shape):
+        self.shapes.append(shape)
 
-    def add_link(self, link: D2Link):
-        self.links.append(link)
+    def add_connection(self, connection: D2Connection):
+        self.connections.append(connection)
 
     def __repr__(self) -> str:
-        nodes = [str(node) for node in self.nodes]
-        links = [str(link) for link in self.links]
+        shapes = [str(shape) for shape in self.shapes]
+        connections = [str(connection) for connection in self.connections]
 
-        return "\n".join(nodes + links)
+        return "\n".join(shapes + connections)
