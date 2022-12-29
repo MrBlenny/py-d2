@@ -1,4 +1,4 @@
-# d2-py
+# py-d2
 
 ![Banner](docs/images/banner.png)
 
