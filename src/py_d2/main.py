@@ -6,6 +6,7 @@ from py_d2.D2Style import D2Style
 
 
 def example():
+    print("Contructing a simple graph...")
     nodes = [
         D2Node(name="node_name1", style=D2Style(fill="red")),
         D2Node(name="node_name2", style=D2Style(fill="blue")),
@@ -14,8 +15,10 @@ def example():
 
     diagram = D2Diagram(nodes=nodes, links=links)
 
+    print("Writing graph to file...")
     with open("graph.d2", "w") as f:
         f.write(str(diagram))
+        print("Done! (graph.d2)")
 
 
 if __name__ == "__main__":

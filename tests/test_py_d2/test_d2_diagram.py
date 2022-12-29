@@ -30,6 +30,14 @@ def test_d2_diagram_one_link():
     assert str(diagram) == "\n".join(["node_name1", "node_name2", "node_name1 -> node_name2"])
 
 
+def test_d2_diagram_one_link_imperative_link():
+    diagram = D2Diagram()
+    diagram.add_node(D2Node(name="node_name1"))
+    diagram.add_node(D2Node(name="node_name2"))
+    diagram.add_link(D2Link(from_node="node_name1", to_node="node_name2"))
+    assert str(diagram) == "\n".join(["node_name1", "node_name2", "node_name1 -> node_name2"])
+
+
 def test_d2_diagram_one_link_with_style():
     nodes = [
         D2Node(name="node_name1", style=D2Style(fill="red")),

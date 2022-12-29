@@ -14,7 +14,7 @@ on:
         default: ''
 
 env:
-  POETRY_SCRIPT_NAME_LIST: 'hello,merge_pdf_demo,add_pdf_annotation_demo,multi_layer_pdf_demo,extract_pdf_images_demo'
+  POETRY_SCRIPT_NAME_LIST: 'example'
 
 jobs:
   run-project:
