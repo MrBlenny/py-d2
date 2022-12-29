@@ -7,7 +7,7 @@ license = "MIT"
 readme = "README.md"
 homepage = "https://mrblenny.github.io/py-d2/"
 repository = "https://github.com/mrblenny/py-d2"
-documentation = "https://mrblenny.github.io/py-d2/"
+documentation = "https://github.com/MrBlenny/py-d2/blob/main/README.md"
 keywords = [
     "py-d2",
     "d2-lang",
