@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
-from py_d2.D2Connection import D2Connection
-from py_d2.D2Shape import D2Shape
-from py_d2.D2Shape import D2Text
-from py_d2.D2Shape import Shape
-from py_d2.D2Style import D2Style
+from py_d2.connection import D2Connection
+from py_d2.shape import D2Shape
+from py_d2.shape import D2Text
+from py_d2.shape import Shape
+from py_d2.style import D2Style
 
 
 def test_d2_shape():
@@ -32,7 +32,6 @@ def test_d2_shape_container():
 
 
 def test_d2_shape_container_style():
-
     shape = D2Shape(name="shape_name", label="container_label")
     shape.add_shape(D2Shape(name="shape_1", style=D2Style(fill="red")))
     shape.add_shape(D2Shape(name="shape_2"))
@@ -54,7 +53,6 @@ def test_d2_shape_container_style():
 
 
 def test_d2_shape_container_in_container_with_shapes():
-
     shape = D2Shape(name="shape_name", label="container_label")
     shape.add_shape(
         D2Shape(
@@ -146,13 +144,13 @@ def test_d2_shape_near():
 
 def test_d2_shape_other_properties():
     text = "Some text"
-    shape = D2Shape(name="shape_name", thing=D2Text(text=text, format="md"))
+    shape = D2Shape(name="shape_name", thing=D2Text(text=text, formatting="md"))
     assert str(shape) == "\n".join(["shape_name: {", "  thing: |md", "    Some text", "  |", "}"])
 
 
 def test_d2_shape_other_properties_multi_line():
     text = "\n".join(["multiline text", "like this", "works too"])
-    shape = D2Shape(name="shape_name", thing=D2Text(text=text, format="md"))
+    shape = D2Shape(name="shape_name", thing=D2Text(text=text, formatting="md"))
     assert str(shape) == "\n".join(
         ["shape_name: {", "  thing: |md", "    multiline text", "    like this", "    works too", "  |", "}"]
     )
@@ -161,7 +159,9 @@ def test_d2_shape_other_properties_multi_line():
 def test_d2_shape_other_properties_can_be_anything():
     text = "\n".join(["multiline text", "like this", "works too"])
     shape = D2Shape(
-        name="shape_name", description=D2Text(text=text, format="md"), other_thing=D2Text(text=text, format="md")
+        name="shape_name",
+        description=D2Text(text=text, formatting="md"),
+        other_thing=D2Text(text=text, formatting="md"),
     )
     assert str(shape) == "\n".join(
         [
@@ -183,7 +183,7 @@ def test_d2_shape_other_properties_can_be_anything():
 
 def test_d2_shape_text_can_specify_pipe_count():
     text = "const iLoveTypescript = 1 || true;\nconst really = () => iLoveTypescript"
-    shape = D2Shape(name="shape_name", code=D2Text(text=text, format="ts", pipes=3))
+    shape = D2Shape(name="shape_name", code=D2Text(text=text, formatting="ts", pipes=3))
     assert str(shape) == "\n".join(
         [
             "shape_name: {",

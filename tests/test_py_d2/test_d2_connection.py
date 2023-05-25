@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from py_d2.D2Connection import D2Connection
-from py_d2.D2Connection import Direction
+from py_d2.connection import D2Connection
+from py_d2.connection import Direction
 
 
 def test_d2_connection_label():
