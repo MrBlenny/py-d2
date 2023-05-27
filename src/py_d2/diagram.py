@@ -2,8 +2,8 @@
 from typing import List
 from typing import Optional
 
-from py_d2.D2Connection import D2Connection
-from py_d2.D2Shape import D2Shape
+from py_d2.connection import D2Connection
+from py_d2.shape import D2Shape
 
 
 class D2Diagram:

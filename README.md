@@ -24,7 +24,7 @@ connections = [
 
 diagram = D2Diagram(shapes=shapes, connections=connections)
 
-with open("graph.d2", "w") as f:
+with open("graph.d2", "w", encoding="utf-8") as f:
     f.write(str(diagram))
 
 ```
@@ -47,7 +47,7 @@ shape_name1 -> shape_name2
 
 ```
 
-This can be rendered using `d2 render graph.d2` or [https://play.d2lang.com/](https://play.d2lang.com/) to produce
+This can be rendered using `d2 graph.d2 graph.svg && open graph.svg` or [https://play.d2lang.com/](https://play.d2lang.com/) to produce
 
 ![example graph](/docs/images/d2.svg)
 

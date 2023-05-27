@@ -5,11 +5,11 @@ from enum import Enum
 from typing import List
 from typing import Optional
 
-from py_d2.D2Connection import D2Connection
-from py_d2.D2Style import D2Style
+from py_d2.connection import D2Connection
 from py_d2.helpers import add_label_and_properties
 from py_d2.helpers import flatten
 from py_d2.helpers import indent
+from py_d2.style import D2Style
 
 
 class Shape(Enum):
@@ -44,17 +44,17 @@ class D2Text:
         # The actual text body (multiline is fine)
         text: str,
         # The format, eg) md, tex, html, css etc
-        format: str,
+        formatting: str,
         # The number of pipes to use
         pipes: int = 1,
     ):
         self.text = text
-        self.format = format
+        self.formatting = formatting
         self.pipes = pipes
 
     def lines(self) -> List[str]:
         sep = "|" * self.pipes
-        return [f"{sep}{self.format}", *self.text.split("\n"), sep]
+        return [f"{sep}{self.formatting}", *self.text.split("\n"), sep]
 
     def __repr__(self) -> str:
         return "\n".join(self.lines())
