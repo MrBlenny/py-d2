@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "py-d2"
-version = "0.0.2"
+version = "1.0.0"
 description = "An unofficial, fully typed python interface for building .d2 graph files in python."
 authors = ["David Revay <daverevay@gmail.com>"]
 license = "MIT"
