@@ -26,3 +26,11 @@ class D2Connection:
 
     def __repr__(self) -> str:
         return "\n".join(self.lines())
+
+    def __hash__(self):
+        return hash((self.shape_1, self.shape_2, self.label, self.direction))
+
+    def __eq__(self, other) -> bool:
+        if ((self.shape_1, self.shape_2, self.direction, self.label) == (other.shape_1, other.shape_2, other.direction, other.label)):
+            return True
+        return False
