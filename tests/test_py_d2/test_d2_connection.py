@@ -31,3 +31,9 @@ def test_d2_connection_direction_both():
 def test_d2_connection_direction_none():
     connection = D2Connection(shape_1="a", shape_2="b", direction=Direction.NONE)
     assert str(connection) == "a -- b"
+
+
+def test_d2_connection_uniqueness():
+    connection = D2Connection(shape_1="a", shape_2="b", direction=Direction.TO)
+    connection2 = D2Connection(shape_1="a", shape_2="b", direction=Direction.TO)
+    assert connection == connection2
