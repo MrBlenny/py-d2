@@ -16,6 +16,11 @@ def test_d2_shape_label():
     assert str(shape) == "shape_name: shape_label"
 
 
+def test_d2_shape_empty_label():
+    shape = D2Shape(name="shape_name", label="")
+    assert str(shape) == 'shape_name: ""'
+
+
 def test_d2_shape_style():
     shape = D2Shape(name="shape_name", style=D2Style(fill="red"))
     assert str(shape) == "shape_name: {\n  style: {\n    fill: red\n  }\n}"
