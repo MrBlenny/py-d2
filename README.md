@@ -63,7 +63,7 @@ See the [tests](/tests/test_py_d2) for more detailed usage examples.
 - [x] Shapes in shapes
 - [x] Arrow directions
 - [x] Markdown / block strings / code in shapes
-- [ ] Icons in shapes
+- [x] Icons in shapes
 - [ ] SQL table shapes
 - [ ] Class shapes
 - [ ] Comments

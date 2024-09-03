@@ -137,6 +137,11 @@ def test_d2_shape_shapes():
     assert str(shape_sequence_diagram) == "shape_name: {\n  shape: sequence_diagram\n}"
 
 
+def test_d2_shape_icon():
+    shape = D2Shape(name="shape_name", icon="https://icons.terrastruct.com/essentials%2F117-database.svg")
+    assert str(shape) == "shape_name: {\n  icon: https://icons.terrastruct.com/essentials%2F117-database.svg\n}"
+
+
 def test_d2_shape_near():
     shape = D2Shape(name="shape_name", near="some_other_shape")
     assert str(shape) == "shape_name: {\n  near: some_other_shape\n}"
