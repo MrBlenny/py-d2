@@ -17,6 +17,7 @@ keywords = [
 ]
 packages = [
     { include = "py_d2", from = "src" },
+    { include = "src/py_d2/py.typed" }
 ]
 
 [tool.poetry.scripts]
