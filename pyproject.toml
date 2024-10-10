@@ -36,7 +36,7 @@ optional = true
 [tool.poetry.group.dev.dependencies]
 isort = "^5.10.1"
 black = ">=22.8,<24.0"
-mypy = "^0.982"
+mypy = ">=0.982,<1.5"
 flake8 = "^5.0.4"
 Flake8-pyproject = "^1.1.0.post0"
 flake8-bugbear = "^22.9.23"
