@@ -13,10 +13,13 @@ def add_label_and_properties(
     has_properties: bool = properties is not None and len(properties) > 0
 
     first_line = name
-    if label or has_properties:
+    if label is not None or has_properties:
         first_line += ":"
 
-    if label:
+    if label is not None and len(label) == 0:
+        first_line += ' ""'
+
+    if label and len(label) > 0:
         first_line += f" {label}"
 
     if has_properties:

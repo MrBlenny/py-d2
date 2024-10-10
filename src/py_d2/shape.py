@@ -72,6 +72,8 @@ class D2Shape:
         shapes: Optional[List[D2Shape]] = None,
         # The style of this shape
         style: Optional[D2Style] = None,
+        # An icon for this shape
+        icon: Optional[str] = None,
         # Connections for the child shapes (NOT the connections for this shape)
         connections: Optional[List[D2Connection]] = None,
         # A shape this is near
@@ -83,6 +85,7 @@ class D2Shape:
         self.shape = shape
         self.shapes = shapes or []
         self.style = style
+        self.icon = icon
         self.connections = connections or []
         self.near = near
         self.kwargs = kwargs
@@ -106,6 +109,9 @@ class D2Shape:
 
         if self.style:
             properties += self.style.lines()
+
+        if self.icon:
+            properties.append(f"icon: {self.icon}")
 
         for key, value in self.kwargs.items():
             other_property = value.lines()

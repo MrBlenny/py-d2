@@ -16,6 +16,11 @@ def test_d2_shape_label():
     assert str(shape) == "shape_name: shape_label"
 
 
+def test_d2_shape_empty_label():
+    shape = D2Shape(name="shape_name", label="")
+    assert str(shape) == 'shape_name: ""'
+
+
 def test_d2_shape_style():
     shape = D2Shape(name="shape_name", style=D2Style(fill="red"))
     assert str(shape) == "shape_name: {\n  style: {\n    fill: red\n  }\n}"
@@ -135,6 +140,11 @@ def test_d2_shape_shapes():
     assert str(shape_image) == "shape_name: {\n  shape: image\n}"
     assert str(shape_classs) == "shape_name: {\n  shape: class\n}"
     assert str(shape_sequence_diagram) == "shape_name: {\n  shape: sequence_diagram\n}"
+
+
+def test_d2_shape_icon():
+    shape = D2Shape(name="shape_name", icon="https://icons.terrastruct.com/essentials%2F117-database.svg")
+    assert str(shape) == "shape_name: {\n  icon: https://icons.terrastruct.com/essentials%2F117-database.svg\n}"
 
 
 def test_d2_shape_near():
