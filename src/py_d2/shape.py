@@ -78,6 +78,8 @@ class D2Shape:
         connections: Optional[List[D2Connection]] = None,
         # A shape this is near
         near: Optional[str] = None,
+        # A link for a shape (when clicked)
+        link: Optional[str] = None,
         **kwargs: D2Text,
     ):
         self.name = name
@@ -88,6 +90,7 @@ class D2Shape:
         self.icon = icon
         self.connections = connections or []
         self.near = near
+        self.link = link
         self.kwargs = kwargs
 
     def add_shape(self, shape: D2Shape):
@@ -106,6 +109,9 @@ class D2Shape:
 
         if self.near:
             properties.append(f"near: {self.near}")
+
+        if self.link:
+            properties.append(f"link: {self.link}")
 
         if self.style:
             properties += self.style.lines()

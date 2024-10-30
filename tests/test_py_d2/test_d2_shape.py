@@ -152,6 +152,11 @@ def test_d2_shape_near():
     assert str(shape) == "shape_name: {\n  near: some_other_shape\n}"
 
 
+def test_d2_shape_link():
+    shape = D2Shape(name="shape_name", link="https://github.com/MrBlenny/py-d2")
+    assert str(shape) == "shape_name: {\n  link: https://github.com/MrBlenny/py-d2\n}"
+
+
 def test_d2_shape_other_properties():
     text = "Some text"
     shape = D2Shape(name="shape_name", thing=D2Text(text=text, formatting="md"))
