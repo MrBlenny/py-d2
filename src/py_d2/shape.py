@@ -8,7 +8,7 @@ from typing import Optional
 from py_d2.connection import D2Connection
 from py_d2.helpers import add_label_and_properties
 from py_d2.helpers import flatten
-from py_d2.helpers import indent
+from py_d2.helpers import indent_lines
 from py_d2.style import D2Style
 
 
@@ -78,6 +78,8 @@ class D2Shape:
         connections: Optional[List[D2Connection]] = None,
         # A shape this is near
         near: Optional[str] = None,
+        # A link for a shape (when clicked)
+        link: Optional[str] = None,
         **kwargs: D2Text,
     ):
         self.name = name
@@ -88,6 +90,7 @@ class D2Shape:
         self.icon = icon
         self.connections = connections or []
         self.near = near
+        self.link = link
         self.kwargs = kwargs
 
     def add_shape(self, shape: D2Shape):
@@ -107,6 +110,9 @@ class D2Shape:
         if self.near:
             properties.append(f"near: {self.near}")
 
+        if self.link:
+            properties.append(f"link: {self.link}")
+
         if self.style:
             properties += self.style.lines()
 
@@ -120,7 +126,7 @@ class D2Shape:
             other_property_line_end = other_property[-1]
             properties += [
                 f"{key}: {other_property_line_1}",
-                *indent(other_property_lines_other),
+                *indent_lines(other_property_lines_other),
                 other_property_line_end,
             ]
 
