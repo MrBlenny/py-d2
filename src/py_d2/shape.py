@@ -8,7 +8,7 @@ from typing import Optional
 from py_d2.connection import D2Connection
 from py_d2.helpers import add_label_and_properties
 from py_d2.helpers import flatten
-from py_d2.helpers import indent
+from py_d2.helpers import indent_lines
 from py_d2.style import D2Style
 
 
@@ -126,7 +126,7 @@ class D2Shape:
             other_property_line_end = other_property[-1]
             properties += [
                 f"{key}: {other_property_line_1}",
-                *indent(other_property_lines_other),
+                *indent_lines(other_property_lines_other),
                 other_property_line_end,
             ]
 

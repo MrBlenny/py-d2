@@ -3,8 +3,12 @@ from typing import List
 from typing import Optional
 
 
-def indent(items: List[str], n: int = 2) -> List[str]:
-    return [f"{' '*n}{item}" for item in items]
+def indent(line, n: int = 2) -> str:
+    return f"{' '*n}{line}"
+
+
+def indent_lines(items: List[str], n: int = 2) -> List[str]:
+    return [indent(item, n) for item in items]
 
 
 def add_label_and_properties(
@@ -26,7 +30,7 @@ def add_label_and_properties(
         first_line += " {"
 
     if properties and has_properties:
-        return [first_line, *indent(properties), "}"]
+        return [first_line, *indent_lines(properties), "}"]
 
     return [first_line]
 
