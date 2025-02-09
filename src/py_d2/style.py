@@ -19,6 +19,8 @@ class D2Style:
         opacity: Optional[float] = None,
         stroke_dash: Optional[int] = None,
         three_d: Optional[bool] = None,
+        font_color: Optional[str] = None,
+        border_radius: Optional[str] = None,
     ):
         self.stroke = stroke
         self.stroke_width = stroke_width
@@ -27,6 +29,8 @@ class D2Style:
         self.opacity = opacity
         self.stroke_dash = stroke_dash
         self.three_d = three_d
+        self.font_color = font_color
+        self.border_radius = border_radius
 
     def lines(self) -> List[str]:
         styles: List[str] = []
@@ -51,6 +55,12 @@ class D2Style:
 
         if self.three_d:
             styles.append(f"3d: {stringify_bool(self.three_d)}")
+
+        if self.font_color:
+            styles.append(f"font-color: {self.font_color}")
+
+        if self.border_radius:
+            styles.append(f"border-radius: {self.border_radius}")
 
         if len(styles) == 0:
             return []
